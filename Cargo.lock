@@ -509,7 +509,7 @@ version = "0.1.0-alpha.0"
 dependencies = [
  "hex",
  "prost",
- "tonic",
+ "tonic 0.13.1",
  "tonic-build",
  "tonic-web-wasm-client",
 ]
@@ -632,6 +632,25 @@ version = "0.12.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "877c5b330756d856ffcc4553ab34a5684481ade925ecc54bcd1bf02b1d0d4d52"
 dependencies = [
+ "base64",
+ "bytes",
+ "http",
+ "http-body",
+ "http-body-util",
+ "percent-encoding",
+ "pin-project",
+ "tokio-stream",
+ "tower-layer",
+ "tower-service",
+ "tracing",
+]
+
+[[package]]
+name = "tonic"
+version = "0.13.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7e581ba15a835f4d9ea06c55ab1bd4dce26fc53752c69a04aac00703bfb49ba9"
+dependencies = [
  "async-trait",
  "base64",
  "bytes",
@@ -678,7 +697,7 @@ dependencies = [
  "js-sys",
  "pin-project",
  "thiserror",
- "tonic",
+ "tonic 0.12.3",
  "tower-service",
  "wasm-bindgen",
  "wasm-bindgen-futures",
