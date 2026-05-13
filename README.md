@@ -66,12 +66,12 @@ Older chain hosts (v0.2 / v0.3) return `Status::unimplemented` for the newer met
 - [x] Standalone crate with `tonic-build` codegen
 - [x] CI: `cargo build` + `cargo build --target wasm32-unknown-unknown`
 - [ ] Smoke test: `wasm-pack test --headless --chrome` against staging endpoint
-- [ ] Publish to crates.io once API surface stabilises
+- [x] Published to crates.io ([`sentrix-grpc-wasm`](https://crates.io/crates/sentrix-grpc-wasm)) — v0.1.0-alpha.0 since 2026-05-12
 - [ ] Optional: pre-built WASM artifact npm package (skip the local `wasm-pack` step for JS consumers)
 
 ## Status
 
-`v0.1.0-alpha.0` — works, used in production by [`sentrix-explorer-v2`](https://github.com/Sentriscloud/sentrix-explorer-v2). Surface is the same as the explorer was using; nothing here is speculative.
+`v0.1.0-alpha.0` on crates.io. Born as the gRPC-Web wrapper inside [`sentrix-explorer-v2`](https://github.com/Sentriscloud/sentrix-explorer-v2); now extracted as a sibling crate that any browser dApp can pull as a thin client over [`sentrix-proto`](https://crates.io/crates/sentrix-proto) without re-implementing the `tonic-web-wasm-client` glue. (explorer-v2 itself depends on `sentrix-proto` directly, not on this crate — they're siblings, not parent/child.)
 
 ## License
 
