@@ -21,7 +21,7 @@ crate-type = ["cdylib", "rlib"]
 # compiles for the wasm32 target (transport pulls tokio-net / mio which
 # don't support wasm). The browser's HTTP layer is `tonic-web-wasm-client`
 # anyway, not tonic's hyper-based Channel.
-sentrix-proto = { version = "0.1", default-features = false }
+sentrix-proto = { version = "0.1.1", default-features = false }
 tonic = { version = "0.14", default-features = false, features = ["codegen"] }
 tonic-web-wasm-client = "0.9"
 hex = "0.4"
