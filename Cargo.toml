@@ -14,14 +14,17 @@ readme = "README.md"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
+# Proto types come from the published `sentrix-proto` crate (the chain
+# repo's source of truth). Drops `tonic-prost` / `prost` from explicit
+# deps — they're transitive through `sentrix-proto` now.
+# `default-features = false` drops the `transport` feature so this crate
+# compiles for the wasm32 target (transport pulls tokio-net / mio which
+# don't support wasm). The browser's HTTP layer is `tonic-web-wasm-client`
+# anyway, not tonic's hyper-based Channel.
+sentrix-proto = { version = "0.1.1", default-features = false }
 tonic = { version = "0.14", default-features = false, features = ["codegen"] }
-tonic-prost = "0.14"
 tonic-web-wasm-client = "0.9"
-prost = "0.14"
 hex = "0.4"
-
-[build-dependencies]
-tonic-prost-build = { version = "0.14", default-features = false }
 
 [lints.rust]
 unsafe_code = "forbid"
